@@ -1,0 +1,11 @@
+.idea
+*.iml
+
+.python-version
+__pycache__
+
+.git
+.gitignore
+README.md
+.dockerignore
+Dockerfile
