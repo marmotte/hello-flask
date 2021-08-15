@@ -3,6 +3,7 @@ MAINTAINER Yosuke Yamamoto
 
 ENV LANG en_US.UTF-8
 ENV TZ Asia/Tokyo
+ENV HELLO_MESSAGE ''
 
 ## Update Environments
 RUN apk update \
@@ -11,8 +12,9 @@ RUN apk update \
     &&  pip install --upgrade pip
 
 ## Deplyments
-WORKDIR /usr/src/app
-ADD / /usr/src/app
+RUN mkdir -p /opt/app /opt/volume
+WORKDIR /opt/app
+ADD / /opt/app
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 5000

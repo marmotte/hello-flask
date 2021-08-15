@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" rel="stylesheet" type="text/css">
+    <style>
+        html, body { height: 100%; min-height: 100%; }
+        .pusher {
+            width: 100%;
+            position: relative;
+            min-height: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .footer.form-page {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+</head>
+
+<body>
+<div class="ui sidebar grey inverted vertical menu">
+    <a href="/" class="item header"><i class="large home icon"></i>Top</a>
+    <a href="/" class="item"><i class="large comment outline icon"></i>About</a>
+</div>
+
+<header class="ui fixed borderless menu">
+    <div id="js-sidebar" class="item"><i class="icon large grey content"></i></div>
+</header>
+
+<div class="pusher">
+    {% block content %}
+        <!-- ここに個別部分が挿入される -->
+    {% endblock %}
+    <footer class="ui vertical footer segment form-page">
+        <div class="ui center aligned container">
+            <div class="ui horizontal inverted small divided link list">
+                Copyright.
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- toggled sidebar -->
+<script>
+    $('#js-sidebar').click(function() {
+        $('.ui.sidebar').sidebar('toggle');
+    });
+</script>
+
+</body>
+</html>
